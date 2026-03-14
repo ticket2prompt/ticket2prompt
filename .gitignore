@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Testing / Coverage
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+
+# Type checking / Linting
+.mypy_cache/
+.ruff_cache/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE / Editors
+.vscode/
+.idea/
+.cursor/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (root-level husky)
+node_modules/
+
+# Claude Code
+.claude/
+
+# Docs build
+docs/api-docs/_build/
+docs/api-docs/openapi.json
+
+# Logs
+*.log
+
+# Repo clones (runtime)
+/tmp/ticket-to-prompt-repos/

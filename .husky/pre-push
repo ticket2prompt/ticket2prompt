@@ -1,0 +1,21 @@
+echo "Running backend tests with coverage check (minimum 90%)..."
+.venv/bin/python -m pytest -m "not integration" \
+  --cov=api --cov=indexing --cov=retrieval --cov=prompts \
+  --cov=storage --cov=workflows --cov=integrations --cov=auth \
+  --cov=git_analysis --cov=config --cov=workers --cov=evaluation \
+  --cov-fail-under=90 -q
+
+if [ $? -ne 0 ]; then
+  echo "Backend coverage is below 90%. Push aborted."
+  exit 1
+fi
+
+echo "Running frontend tests with coverage check (minimum 90%)..."
+cd frontend && npx vitest run --coverage
+
+if [ $? -ne 0 ]; then
+  echo "Frontend coverage is below 90%. Push aborted."
+  exit 1
+fi
+
+echo "All coverage checks passed!"

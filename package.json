@@ -1,0 +1,13 @@
+{
+  "name": "ticket-to-prompt",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "test:backend": ".venv/bin/python -m pytest -m 'not integration' --cov=api --cov=indexing --cov=retrieval --cov=prompts --cov=storage --cov=workflows --cov=integrations --cov=auth --cov=git_analysis --cov=config --cov=workers --cov=evaluation --cov-fail-under=90 -q",
+    "test:frontend": "cd frontend && npx vitest run --coverage",
+    "test:all": "npm run test:backend && npm run test:frontend"
+  },
+  "devDependencies": {
+    "husky": "^9.0.0"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "tickets": [
+    {
+      "ticket_id": "PAY-1001",
+      "title": "Add retry logic for payment gateway timeouts",
+      "description": "When the payment gateway returns a 5xx or times out, implement exponential backoff retry with max 3 attempts.",
+      "acceptance_criteria": "- Retry up to 3 times with exponential backoff\n- Log each retry attempt\n- Return appropriate error after final failure",
+      "repo": "payment-service",
+      "expected_files": ["src/payments/gateway.py", "src/payments/retry.py", "src/payments/exceptions.py"],
+      "expected_symbols": ["process_payment", "retry_with_backoff", "GatewayTimeoutError"],
+      "expected_behavior": "Payment processing retries on gateway failures with exponential backoff"
+    },
+    {
+      "ticket_id": "PAY-1002",
+      "title": "Implement refund processing endpoint",
+      "description": "Create a POST /refunds endpoint that processes full and partial refunds through Stripe, validates refund amount against original charge.",
+      "acceptance_criteria": "- Validate refund amount does not exceed original charge\n- Support full and partial refunds\n- Record refund in database with status tracking",
+      "repo": "payment-service",
+      "expected_files": ["src/payments/refund.py", "src/payments/models.py", "src/api/refund_routes.py"],
+      "expected_symbols": ["process_refund", "RefundRequest", "validate_refund_amount"],
+      "expected_behavior": "Refund endpoint validates amount, processes through Stripe, and records result"
+    },
+    {
+      "ticket_id": "PAY-1003",
+      "title": "Add webhook handler for Stripe payment events",
+      "description": "Implement a webhook endpoint that receives Stripe events (payment_intent.succeeded, payment_intent.failed, charge.refunded) and updates order status accordingly.",
+      "acceptance_criteria": "- Verify webhook signature\n- Handle payment succeeded, failed, and refunded events\n- Update order status in database\n- Return 200 for processed events, 400 for invalid signatures",
+      "repo": "payment-service",
+      "expected_files": ["src/webhooks/stripe_handler.py", "src/webhooks/signature.py", "src/orders/status.py"],
+      "expected_symbols": ["handle_stripe_webhook", "verify_signature", "update_order_status"],
+      "expected_behavior": "Webhook receives Stripe events, verifies signature, and updates order status"
+    },
+    {
+      "ticket_id": "PAY-1004",
+      "title": "Generate monthly invoice PDF for customers",
+      "description": "Build an invoice generation service that collects all charges for a customer in a billing period, calculates totals with tax, and produces a PDF invoice.",
+      "acceptance_criteria": "- Aggregate charges by billing period\n- Calculate subtotal, tax, and total\n- Generate PDF with line items\n- Store PDF in S3 and record URL in database",
+      "repo": "payment-service",
+      "expected_files": ["src/billing/invoice_generator.py", "src/billing/tax_calculator.py", "src/billing/pdf_renderer.py"],
+      "expected_symbols": ["generate_invoice", "calculate_tax", "render_invoice_pdf"],
+      "expected_behavior": "Invoice service aggregates charges, calculates tax, and generates PDF"
+    },
+    {
+      "ticket_id": "PAY-1005",
+      "title": "Add payment method validation before charging",
+      "description": "Before processing a payment, validate that the payment method (card) is not expired, has sufficient info, and passes Luhn check for card number format.",
+      "acceptance_criteria": "- Check card expiration date\n- Validate card number format with Luhn algorithm\n- Return clear validation errors\n- Block payment if validation fails",
+      "repo": "payment-service",
+      "expected_files": ["src/payments/validation.py", "src/payments/card.py", "src/payments/exceptions.py"],
+      "expected_symbols": ["validate_payment_method", "luhn_check", "CardValidationError"],
+      "expected_behavior": "Payment validation checks card expiry and format before allowing charges"
+    }
+  ]
+}
