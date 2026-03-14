@@ -78,7 +78,7 @@ export default function SettingsPage() {
               </Button>
             </form>
             {createdKey && (
-              <div className="rounded-md bg-muted p-3">
+              <div className="rounded-md bg-primary/5 dark:bg-primary/10 border border-primary/10 p-3">
                 <p className="text-xs text-muted-foreground mb-1">Your new API key (shown once):</p>
                 <code className="text-sm font-mono">{createdKey}</code>
               </div>

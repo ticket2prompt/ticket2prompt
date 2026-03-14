@@ -73,7 +73,7 @@ export default function PromptLookupPage() {
       )}
 
       {promptText && (
-        <Card className="max-w-4xl">
+        <Card className="max-w-4xl dark:border-primary/10">
           <div className="flex items-center justify-between border-b px-6 py-3">
             <span className="text-sm font-medium">Result</span>
             <Button variant="ghost" size="sm" onClick={handleCopy}>

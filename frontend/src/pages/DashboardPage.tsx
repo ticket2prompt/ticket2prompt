@@ -28,9 +28,9 @@ export default function DashboardPage() {
       />
 
       <div className="grid gap-4 sm:grid-cols-3">
-        <StatCard icon={<RiFolder3Line className="h-5 w-5" />} label="Projects" value={projects.length} />
-        <StatCard icon={<RiTeamLine className="h-5 w-5" />} label="Teams" value="—" />
-        <StatCard icon={<RiFileTextLine className="h-5 w-5" />} label="Prompts generated" value="—" />
+        <StatCard icon={<RiFolder3Line className="h-5 w-5" />} label="Projects" value={projects.length} index={0} />
+        <StatCard icon={<RiTeamLine className="h-5 w-5" />} label="Teams" value="—" index={1} />
+        <StatCard icon={<RiFileTextLine className="h-5 w-5" />} label="Prompts generated" value="—" index={2} />
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
@@ -47,9 +47,9 @@ export default function DashboardPage() {
                   <button
                     key={p.project_id}
                     onClick={() => navigate(`/projects/${p.project_id}`)}
-                    className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-left text-sm transition-colors hover:bg-muted"
+                    className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-left text-sm transition-colors hover:bg-primary/5"
                   >
-                    <RiFolder3Line className="h-4 w-4 text-muted-foreground" />
+                    <RiFolder3Line className="h-4 w-4 text-primary/60" />
                     <span className="font-medium">{p.name}</span>
                     <span className="ml-auto text-xs text-muted-foreground">{p.slug}</span>
                   </button>

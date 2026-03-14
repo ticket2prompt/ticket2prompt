@@ -31,10 +31,10 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="auth-bg flex min-h-screen items-center justify-center bg-background px-4">
       <div className="w-full max-w-sm animate-in fade-in slide-in-from-bottom-4 duration-500">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold">
+          <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-lg gradient-primary text-white shadow-sm font-bold">
             T
           </div>
           <h1 className="text-xl font-semibold tracking-tight">Welcome back</h1>

@@ -115,12 +115,12 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <Card
               key={project.project_id}
-              className="cursor-pointer transition-colors hover:border-foreground/20"
+              className="cursor-pointer transition-all hover:border-primary/30 hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-[0_0_20px_oklch(0.55_0.23_275/15%)]"
               onClick={() => navigate(`/projects/${project.project_id}`)}
             >
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-base">
-                  <RiFolder3Line className="h-4 w-4 text-muted-foreground" />
+                  <RiFolder3Line className="h-4 w-4 text-primary" />
                   {project.name}
                 </CardTitle>
               </CardHeader>

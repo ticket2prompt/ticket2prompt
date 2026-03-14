@@ -42,7 +42,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeader className="border-b border-sidebar-border px-4 py-3">
         <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground text-xs font-bold">
+          <div className="flex h-7 w-7 items-center justify-center rounded-md gradient-primary text-white text-xs font-bold shadow-sm">
             T
           </div>
           <span className="text-sm font-semibold tracking-tight">ticket-to-prompt</span>
@@ -82,7 +82,7 @@ export function AppSidebar() {
             <DropdownMenu>
               <DropdownMenuTrigger render={<SidebarMenuButton className="w-full" />}>
                 <Avatar className="h-6 w-6">
-                  <AvatarFallback className="text-[10px] bg-muted">U</AvatarFallback>
+                  <AvatarFallback className="text-[10px] bg-primary/10 text-primary font-semibold">U</AvatarFallback>
                 </Avatar>
                 <span className="text-sm">User</span>
                 <RiArrowDownSLine className="ml-auto h-4 w-4 text-muted-foreground" />

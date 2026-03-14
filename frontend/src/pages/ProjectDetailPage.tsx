@@ -234,7 +234,7 @@ export default function ProjectDetailPage() {
                   {indexStatus.status === "parsing" && indexStatus.files_total && indexStatus.files_total > 0 && (
                     <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
                       <div
-                        className="h-full rounded-full bg-primary transition-all duration-300"
+                        className="h-full rounded-full gradient-primary transition-all duration-300"
                         style={{ width: `${Math.round(((indexStatus.files_parsed ?? 0) / indexStatus.files_total) * 100)}%` }}
                       />
                     </div>

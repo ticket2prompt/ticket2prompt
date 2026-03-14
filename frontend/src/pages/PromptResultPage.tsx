@@ -49,7 +49,7 @@ export default function PromptResultPage() {
       <div className="mb-4">
         <Link
           to={`/projects/${projectId}`}
-          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
         >
           <RiArrowLeftLine className="h-4 w-4" />
           Back to project
@@ -67,7 +67,7 @@ export default function PromptResultPage() {
         }
       />
 
-      <Card>
+      <Card className="dark:border-primary/10">
         <CardContent className="p-0">
           <ScrollArea className="h-[500px]">
             <pre className="whitespace-pre-wrap p-6 text-sm font-mono leading-relaxed">{promptText}</pre>
